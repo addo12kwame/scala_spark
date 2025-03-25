@@ -1,0 +1,43 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+# Virtual files & logs
+*.log
+*.tmp
+
+# Mac & Windows system files
+.DS_Store
+Thumbs.db
+
+# sbt
+target/
+project/target/
+project/project/
+.cache/
+.history/
+
+# Bloop (Scala build server used by IntelliJ or Metals)
+.bloop/
+.metals/
+.scala-build/
+.worksheet/
+
+# BSP (Build Server Protocol)
+.bsp/
+
+# Coursier cache (used by sbt, metals, etc.)
+.coursier/
+
+# VS Code (in case you switch editors)
+.vscode/
+
+# Optional: logs or CSVs you generate
+*.csv
+*.json
+*.zip
+*.log
+
+# Ignore IntelliJ run configurations (optional)
+runConfigurations/
