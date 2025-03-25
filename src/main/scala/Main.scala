@@ -12,8 +12,10 @@ object Main {
 
     val df = spark.read
       .option("header",value = true)
+      .option("inferSchema", value = true) // Infer different data types in our dataframe. Schema closely matches the data in the dataframe
       .csv("./data/AAPL.csv")
 
-    df.show()
+    df.show() // print the first 20 rows of the dataframe
+    df.printSchema()
   }
 }
