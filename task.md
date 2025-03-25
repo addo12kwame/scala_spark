@@ -7,4 +7,16 @@
 # Second
 - [ ] Inspect the schema `.printSchema()`
 - [ ] Find documentation for data types
-- [ ] CSV source option `inferSchema`
+- [ ] CSV source option `inferSchema
+
+# Third Dataset API
+- [ ] The dataset API defines a DSL (domain specific language, declarative, not using scala functions)
+- [ ] Thats how we tell Spark what to do
+- [ ] Inspect Spark API within IDE
+- [ ] `type DataFrame - Dataset[Row]`
+- [ ] `Row` is a generic object (untyped view)
+
+# Fourth DSL (i) Referencing columns
+- [ ] Mostly when using the API, we work with Columns `col("a") + 5`
+- [ ] Ways of referencing columns: String, apply, col, $ (implicits)
+- [ ] Not necessarily bound to dataframe
