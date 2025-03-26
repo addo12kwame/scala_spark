@@ -1,6 +1,7 @@
 package com.kwame.tutoriial
 
-import org.apache.spark.sql.functions.col
+import org.apache.spark.sql.functions.{col, concat, lit}
+import org.apache.spark.sql.types.StringType
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 
@@ -32,6 +33,32 @@ object Main {
     val columnDollar = $"Close" // Gets the column "close"
 
     df.select(col("Date"), $"Open", df("Close")).show() // These are the multiple ways to reference column
+
+    // Fourth
+    val column = df("Open")
+
+    val newColumn = (column + (2.0)).as("IncreasedBy2") // Increase all the values in the column by 2 and using "as" to give the column a better name1
+    df.select(newColumn).show
+
+    val columnString = column.cast(StringType)
+    df.select(column,newColumn,columnString)
+      .filter(newColumn > 2)
+      .filter(newColumn > column)
+      .filter(newColumn === column) // Using == will be comparing two objects, === will be comparing columns
+      .show()
+    val colHelloWord = lit("Hello World") // Creating a column with "hello World" only
+
+    /*
+       concat function
+       Concatenating two columns:
+       if you "1" and "2" in specific columns it becomes "12"
+       Same applies to every row in the two columns
+     */
+    val togetherCol = concat(colHelloWord,column)
+    df.select(togetherCol).show()
+
+
+
 
 
   }
