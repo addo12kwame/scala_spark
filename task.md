@@ -29,3 +29,6 @@
 # Sixth DSL (iii) `sql.functions`
 - [ ] `col`,`lit`, `concat` 
 
+# Seventh DSL (iv) Expressions
+- Write SQL expressions as strings, which will be interpreted at runtime (no compiler safety)
+

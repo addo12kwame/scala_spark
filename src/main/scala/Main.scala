@@ -57,8 +57,23 @@ object Main {
     val togetherCol = concat(colHelloWord,column)
     df.select(togetherCol).show()
 
+    val sqlExpr = new SqlExpression()
+    sqlExpr.workingWithSqlExpr(df)
 
+    /*
+     * df.selectExpr method
+     * Get a df using sql string expressions
+     */
+    df.selectExpr("cast(Date as string)", "Open  + 10","current_timestamp()").show
 
+    /*
+     * We can use the spark session to run sql queries through spark sql
+     * First we register the dataframe so that it becomes visible in spark
+     * We do that by creating the tempView with a name and use the same name on the sparkSession
+     * Not recommended
+     */
+    df.createTempView("tempView")
+    spark.sql("Select * from tempView").show()
 
 
   }
